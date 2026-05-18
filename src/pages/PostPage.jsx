@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { getPost, deletePost, addComment } from '../api/posts'
 import { useAuth } from '../context/AuthContext'
@@ -12,13 +12,13 @@ function PostPage() {
   const [loading, setLoading] = useState(true)
   const [comment, setComment] = useState('')
 
-  const fetchPost = () => {
+  const fetchPost = useCallback(() => {
     getPost(id)
       .then(res => setPost(res.data))
       .finally(() => setLoading(false))
-  }
+  }, [id])
 
- useEffect(() => { fetchPost() }, [id])
+  useEffect(() => { fetchPost() }, [fetchPost])
 
   const handleDelete = async () => {
     if (window.confirm('Delete this post?')) {
@@ -72,6 +72,7 @@ function PostPage() {
             <h3>Leave a comment</h3>
             <textarea placeholder="Write your comment..." value={comment}
               onChange={e => setComment(e.target.value)} required rows={4} />
+            <br />
             <button type="submit">Post Comment</button>
           </form>
         ) : (
