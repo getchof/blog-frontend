@@ -1,0 +1,54 @@
+.home-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.home-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #1a1a2e;
+}
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.post-card h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.post-meta {
+  color: #888;
+  font-size: 14px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 80px;
+  color: #888;
+  font-size: 18px;
+}
+
+.error {
+  text-align: center;
+  margin-top: 80px;
+  color: #e53e3e;
+}
