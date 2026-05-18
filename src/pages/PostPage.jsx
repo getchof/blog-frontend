@@ -18,7 +18,7 @@ function PostPage() {
       .finally(() => setLoading(false))
   }
 
-  useEffect(() => { fetchPost() }, [id])
+ useEffect(() => { fetchPost() }, [id])
 
   const handleDelete = async () => {
     if (window.confirm('Delete this post?')) {
